@@ -25,7 +25,13 @@ const getFormatedTime = computed((): string => {
   return `${hoursAsString}:${minutesAsString}:${secondsAsString}`;
 });
 
+const wasStarted = ref(false);
+
 const start = () => {
+  if (wasStarted.value) {
+    return;
+  }
+
   const hours = date.value.getHours();
 
   const minutes = date.value.getMinutes();
@@ -39,9 +45,15 @@ const start = () => {
   const secondsAsString = seconds < 10 ? '0' + seconds : seconds.toString();
 
   console.log(`start: ${hoursAsString}:${minutesAsString}:${secondsAsString}`);
+
+  wasStarted.value = true;
 };
 
 const end = () => {
+  if (!wasStarted.value) {
+    return;
+  }
+
   const hours = date.value.getHours();
 
   const minutes = date.value.getMinutes();
@@ -55,6 +67,8 @@ const end = () => {
   const secondsAsString = seconds < 10 ? '0' + seconds : seconds.toString();
 
   console.log(`end: ${hoursAsString}:${minutesAsString}:${secondsAsString}`);
+
+  wasStarted.value = false;
 };
 
 onMounted(() => {
