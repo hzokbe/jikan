@@ -25,6 +25,38 @@ const getFormatedTime = computed((): string => {
   return `${hoursAsString}:${minutesAsString}:${secondsAsString}`;
 });
 
+const start = () => {
+  const hours = date.value.getHours();
+
+  const minutes = date.value.getMinutes();
+
+  const seconds = date.value.getSeconds();
+
+  const hoursAsString = hours < 10 ? '0' + hours : hours.toString();
+
+  const minutesAsString = minutes < 10 ? '0' + minutes : minutes.toString();
+
+  const secondsAsString = seconds < 10 ? '0' + seconds : seconds.toString();
+
+  console.log(`start: ${hoursAsString}:${minutesAsString}:${secondsAsString}`);
+};
+
+const end = () => {
+  const hours = date.value.getHours();
+
+  const minutes = date.value.getMinutes();
+
+  const seconds = date.value.getSeconds();
+
+  const hoursAsString = hours < 10 ? '0' + hours : hours.toString();
+
+  const minutesAsString = minutes < 10 ? '0' + minutes : minutes.toString();
+
+  const secondsAsString = seconds < 10 ? '0' + seconds : seconds.toString();
+
+  console.log(`end: ${hoursAsString}:${minutesAsString}:${secondsAsString}`);
+};
+
 onMounted(() => {
   updateDateIntervalId = setInterval(updateDate, 1000);
 });
@@ -39,6 +71,10 @@ onUnmounted(() => {
 <template>
   <div>
     <p>{{ getFormatedTime }}</p>
+
+    <button @click="start">Start</button>
+
+    <button @click="end">End</button>
   </div>
 </template>
 
