@@ -1,8 +1,41 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const username = ref('');
+
+const password = ref('');
+
+const passwordConfirmation = ref('');
+
+const submit = async () => {
+  console.log('submit');
+
+  console.log(`'${username.value}'`);
+
+  console.log(`'${password.value}'`);
+
+  console.log(`'${passwordConfirmation.value}'`);
+};
+</script>
 
 <template>
   <div>
     <h1>Sign Up</h1>
+
+    <form @submit.prevent="submit">
+      <input type="text" placeholder="Username" required v-model="username" />
+
+      <input type="password" placeholder="Password" required v-model="password" />
+
+      <input
+        type="password"
+        placeholder="Password Confirmation"
+        required
+        v-model="passwordConfirmation"
+      />
+
+      <button type="submit">Sign Up</button>
+    </form>
   </div>
 </template>
 
