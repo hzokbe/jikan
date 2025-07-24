@@ -27,6 +27,8 @@ const submit = async () => {
 
       <PasswordInput placeholder="Password" v-model="password" />
 
+      <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
+
       <button type="submit">Sign In</button>
     </form>
   </div>

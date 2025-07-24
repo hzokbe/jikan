@@ -39,6 +39,8 @@ const submit = async () => {
 
       <PasswordInput placeholder="Password Confirmation" v-model="passwordConfirmation" />
 
+      <p>Already have an account? <a href="/sign-in">Sign In</a></p>
+
       <button type="submit">Sign Up</button>
     </form>
   </div>
