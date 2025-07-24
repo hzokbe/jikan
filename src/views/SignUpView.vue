@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import PasswordInput from '@/components/PasswordInput.vue';
+
 const username = ref('');
 
 const password = ref('');
@@ -25,14 +27,9 @@ const submit = async () => {
     <form @submit.prevent="submit">
       <input type="text" placeholder="Username" required v-model="username" />
 
-      <input type="password" placeholder="Password" required v-model="password" />
+      <PasswordInput placeholder="Password" v-model="password" />
 
-      <input
-        type="password"
-        placeholder="Password Confirmation"
-        required
-        v-model="passwordConfirmation"
-      />
+      <PasswordInput placeholder="Password Confirmation" v-model="passwordConfirmation" />
 
       <button type="submit">Sign Up</button>
     </form>
