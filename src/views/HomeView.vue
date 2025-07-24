@@ -29,34 +29,46 @@ const getFormatedTime = computed((): string => {
   return formatTime(date.value);
 });
 
-const wasStarted = ref(false);
+type Status = 'started' | 'paused' | 'stopped';
+
+const status = ref<Status>('stopped');
 
 const start = () => {
-  if (wasStarted.value) {
+  if (status.value == 'started') {
     return;
   }
 
-  console.log(`start: ${formatTime(new Date())}`);
+  console.log(`clock was started: ${formatTime(new Date())}`);
 
-  wasStarted.value = true;
+  status.value = 'started';
 };
 
 const pause = () => {
-  if (!wasStarted.value) {
+  if (status.value == 'stopped') {
     return;
   }
 
-  console.log(`pause: ${formatTime(new Date())}`);
+  console.log(`clock was paused: ${formatTime(new Date())}`);
+
+  if (status.value == 'paused') {
+    status.value = 'started';
+
+    console.log(`clock was started: ${formatTime(new Date())}`);
+  } else {
+    status.value = 'paused';
+
+    console.log(`clock was paused: ${formatTime(new Date())}`);
+  }
 };
 
 const end = () => {
-  if (!wasStarted.value) {
+  if (status.value == 'stopped') {
     return;
   }
 
-  console.log(`end: ${formatTime(new Date())}`);
+  console.log(`clock was stopped: ${formatTime(new Date())}`);
 
-  wasStarted.value = false;
+  status.value = 'stopped';
 };
 
 onMounted(() => {
@@ -73,6 +85,8 @@ onUnmounted(() => {
 <template>
   <div>
     <p>{{ getFormatedTime }}</p>
+
+    <p>Status: {{ status }}</p>
 
     <button @click="start">Start</button>
 
