@@ -41,6 +41,14 @@ const start = () => {
   wasStarted.value = true;
 };
 
+const pause = () => {
+  if (!wasStarted.value) {
+    return;
+  }
+
+  console.log(`pause: ${formatTime(new Date())}`);
+};
+
 const end = () => {
   if (!wasStarted.value) {
     return;
@@ -67,6 +75,8 @@ onUnmounted(() => {
     <p>{{ getFormatedTime }}</p>
 
     <button @click="start">Start</button>
+
+    <button @click="pause">Pause</button>
 
     <button @click="end">End</button>
   </div>
