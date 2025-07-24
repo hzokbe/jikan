@@ -9,12 +9,12 @@ const updateDate = () => {
 
 let updateDateIntervalId: number | null = null;
 
-const getFormatedTime = computed((): string => {
-  const hours = date.value.getHours();
+const formatTime = (date: Date): string => {
+  const hours = date.getHours();
 
-  const minutes = date.value.getMinutes();
+  const minutes = date.getMinutes();
 
-  const seconds = date.value.getSeconds();
+  const seconds = date.getSeconds();
 
   const hoursAsString = hours < 10 ? '0' + hours : hours.toString();
 
@@ -23,6 +23,10 @@ const getFormatedTime = computed((): string => {
   const secondsAsString = seconds < 10 ? '0' + seconds : seconds.toString();
 
   return `${hoursAsString}:${minutesAsString}:${secondsAsString}`;
+};
+
+const getFormatedTime = computed((): string => {
+  return formatTime(date.value);
 });
 
 const wasStarted = ref(false);
@@ -32,19 +36,7 @@ const start = () => {
     return;
   }
 
-  const hours = date.value.getHours();
-
-  const minutes = date.value.getMinutes();
-
-  const seconds = date.value.getSeconds();
-
-  const hoursAsString = hours < 10 ? '0' + hours : hours.toString();
-
-  const minutesAsString = minutes < 10 ? '0' + minutes : minutes.toString();
-
-  const secondsAsString = seconds < 10 ? '0' + seconds : seconds.toString();
-
-  console.log(`start: ${hoursAsString}:${minutesAsString}:${secondsAsString}`);
+  console.log(`start: ${formatTime(new Date())}`);
 
   wasStarted.value = true;
 };
@@ -54,19 +46,7 @@ const end = () => {
     return;
   }
 
-  const hours = date.value.getHours();
-
-  const minutes = date.value.getMinutes();
-
-  const seconds = date.value.getSeconds();
-
-  const hoursAsString = hours < 10 ? '0' + hours : hours.toString();
-
-  const minutesAsString = minutes < 10 ? '0' + minutes : minutes.toString();
-
-  const secondsAsString = seconds < 10 ? '0' + seconds : seconds.toString();
-
-  console.log(`end: ${hoursAsString}:${minutesAsString}:${secondsAsString}`);
+  console.log(`end: ${formatTime(new Date())}`);
 
   wasStarted.value = false;
 };
