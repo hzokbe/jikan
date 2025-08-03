@@ -5,6 +5,10 @@ import PasswordInput from '@/components/PasswordInput.vue';
 
 import TextInput from '@/components/TextInput.vue';
 
+import { AxiosError } from 'axios';
+
+import api from '@/api/api';
+
 const username = ref('');
 
 const password = ref('');
@@ -24,6 +28,17 @@ const submit = async () => {
     console.error('invalid password confirmation');
 
     return;
+  }
+
+  try {
+    await api.post('/sign-up', {
+      username: username.value,
+      rawPassword: password.value,
+    });
+  } catch (err) {
+    if (err instanceof AxiosError) {
+      console.error(err);
+    }
   }
 };
 </script>
