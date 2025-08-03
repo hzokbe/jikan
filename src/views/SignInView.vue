@@ -21,7 +21,7 @@ const showToastNotification = ref(false);
 
 const toastNotificationMessage = ref('');
 
-const toastNotificationType = ref<'info' | 'warning' | 'error'>('info');
+const toastNotificationType = ref<'info' | 'warning' | 'error' | 'success'>('info');
 
 const router = useRouter();
 
@@ -53,7 +53,7 @@ const submit = async () => {
 
     toastNotificationMessage.value = 'Successfully signed in';
 
-    toastNotificationType.value = 'info';
+    toastNotificationType.value = 'success';
 
     setTimeout(() => router.push('/'), 3000);
   } catch (err) {
