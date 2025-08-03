@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SuccessIcon from '@/assets/info.svg';
+
 import InfoIcon from '@/assets/info.svg';
 
 import WarningIcon from '@/assets/warning.svg';
@@ -7,10 +9,12 @@ import ErrorIcon from '@/assets/error.svg';
 
 import { computed, onMounted, ref } from 'vue';
 
-const props = defineProps<{ message: string; type: 'info' | 'warning' | 'error' }>();
+const props = defineProps<{ message: string; type: 'info' | 'success' | 'warning' | 'error' }>();
 
 const icon = computed(() => {
   switch (props.type) {
+    case 'success':
+      return SuccessIcon;
     case 'info':
       return InfoIcon;
     case 'warning':
@@ -86,6 +90,10 @@ p {
 
 .info {
   background-color: #525252;
+}
+
+.success {
+  background-color: #4ade80;
 }
 
 .warning {
