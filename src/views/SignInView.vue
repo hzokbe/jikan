@@ -5,6 +5,10 @@ import PasswordInput from '@/components/PasswordInput.vue';
 
 import TextInput from '@/components/TextInput.vue';
 
+import api from '@/api/api';
+
+import { AxiosError } from 'axios';
+
 const username = ref('');
 
 const password = ref('');
@@ -15,6 +19,24 @@ const submit = async () => {
   console.log(`'${username.value}'`);
 
   console.log(`'${password.value}'`);
+
+  try {
+    const basicToken = btoa(`${username.value}:${password.value}`);
+
+    await api.post(
+      '/sign-in',
+      {},
+      {
+        headers: {
+          Authorization: `Basic ${basicToken}`,
+        },
+      },
+    );
+  } catch (err) {
+    if (err instanceof AxiosError) {
+      console.error(err);
+    }
+  }
 };
 </script>
 
