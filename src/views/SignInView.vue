@@ -14,12 +14,6 @@ const username = ref('');
 const password = ref('');
 
 const submit = async () => {
-  console.log('submit');
-
-  console.log(`'${username.value}'`);
-
-  console.log(`'${password.value}'`);
-
   try {
     const basicToken = btoa(`${username.value}:${password.value}`);
 

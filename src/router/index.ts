@@ -27,11 +27,25 @@ const router = createRouter({
       name: 'Sign Up',
       path: '/sign-up',
       component: SignUpView,
+      beforeEnter: async (to, from, next) => {
+        if (await isAuthenticated()) {
+          next({ name: 'Home' });
+        } else {
+          next();
+        }
+      },
     },
     {
       name: 'Sign In',
       path: '/sign-in',
       component: SignInView,
+      beforeEnter: async (to, from, next) => {
+        if (await isAuthenticated()) {
+          next({ name: 'Home' });
+        } else {
+          next();
+        }
+      },
     },
   ],
 });
