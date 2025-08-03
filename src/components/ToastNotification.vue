@@ -5,7 +5,7 @@ import WarningIcon from '@/assets/warning.svg';
 
 import ErrorIcon from '@/assets/error.svg';
 
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
 const props = defineProps<{ message: string; type: 'info' | 'warning' | 'error' }>();
 
@@ -20,14 +20,79 @@ const icon = computed(() => {
       return ErrorIcon;
   }
 });
+
+const visible = ref(true);
+
+onMounted(() => {
+  setTimeout(() => {
+    visible.value = false;
+  }, 3000);
+});
 </script>
 
 <template>
-  <div>
-    <img :src="icon" alt="Toast Notification Icon" />
-
-    <p>{{ message }}</p>
-  </div>
+  <transition name="fade">
+    <div v-show="visible" :class="type">
+      <img :src="icon" alt="Toast Notification Icon" />
+      <p>{{ message }}</p>
+    </div>
+  </transition>
 </template>
 
-<style scoped></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+div {
+  align-items: center;
+
+  border-radius: 5px;
+
+  bottom: 0px;
+
+  color: #fafafa;
+
+  display: flex;
+
+  font-family: 'Inter', sans-serif;
+
+  font-weight: bold;
+
+  gap: 8px;
+
+  margin: 8px;
+
+  padding: 16px 32px;
+
+  position: absolute;
+
+  right: 0px;
+
+  user-select: none;
+
+  width: max-content;
+}
+
+p {
+  text-wrap: nowrap;
+}
+
+.info {
+  background-color: #525252;
+}
+
+.warning {
+  background-color: #facc15;
+}
+
+.error {
+  background-color: #dc2626;
+}
+</style>
