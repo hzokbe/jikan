@@ -16,14 +16,6 @@ const password = ref('');
 const passwordConfirmation = ref('');
 
 const submit = async () => {
-  console.log('submit');
-
-  console.log(`'${username.value}'`);
-
-  console.log(`'${password.value}'`);
-
-  console.log(`'${passwordConfirmation.value}'`);
-
   if (password.value != passwordConfirmation.value) {
     console.error('invalid password confirmation');
 
