@@ -9,12 +9,34 @@ import api from '@/api/api';
 
 import { AxiosError } from 'axios';
 
+import ToastNotification from '@/components/ToastNotification.vue';
+
+import { useRouter } from 'vue-router';
+
 const username = ref('');
 
 const password = ref('');
 
+const showToastNotification = ref(false);
+
+const toastNotificationMessage = ref('');
+
+const toastNotificationType = ref<'info' | 'warning' | 'error'>('info');
+
+const router = useRouter();
+
+const submitButtonText = ref('Sign In');
+
+const isSubmitButtonDisabled = ref(false);
+
 const submit = async () => {
+  showToastNotification.value = false;
+
   try {
+    submitButtonText.value = 'Loading...';
+
+    isSubmitButtonDisabled.value = true;
+
     const basicToken = btoa(`${username.value}:${password.value}`);
 
     await api.post(
@@ -26,11 +48,35 @@ const submit = async () => {
         },
       },
     );
+
+    showToastNotification.value = true;
+
+    toastNotificationMessage.value = 'Successfully signed in';
+
+    toastNotificationType.value = 'info';
+
+    setTimeout(() => router.push('/'), 3000);
   } catch (err) {
+    showToastNotification.value = true;
+
+    toastNotificationType.value = 'error';
+
     if (err instanceof AxiosError) {
-      console.error(err);
+      const response = err.response;
+
+      if (response) {
+        const status = response?.status;
+
+        if (status == 401) {
+          toastNotificationMessage.value = 'Wrong username or password';
+        }
+      }
     }
   }
+
+  isSubmitButtonDisabled.value = false;
+
+  submitButtonText.value = 'Sign In';
 };
 </script>
 
@@ -45,8 +91,14 @@ const submit = async () => {
 
       <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
 
-      <button type="submit">Sign In</button>
+      <button type="submit" :disabled="isSubmitButtonDisabled">{{ submitButtonText }}</button>
     </form>
+
+    <ToastNotification
+      :message="toastNotificationMessage"
+      :type="toastNotificationType"
+      v-if="showToastNotification"
+    />
   </div>
 </template>
 
