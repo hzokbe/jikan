@@ -93,7 +93,7 @@ p {
 }
 
 .success {
-  background-color: #4ade80;
+  background-color: #22c55e;
 }
 
 .warning {
