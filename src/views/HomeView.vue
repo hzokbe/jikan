@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 
+import api from '@/api/api';
+
+import { useRouter } from 'vue-router';
+
 const date = ref(new Date());
 
 const updateDate = () => {
@@ -71,6 +75,14 @@ const end = () => {
   status.value = 'stopped';
 };
 
+const router = useRouter();
+
+const signOut = async () => {
+  await api.post('/sign-out');
+
+  router.push('/sign-in');
+};
+
 onMounted(() => {
   updateDateIntervalId = setInterval(updateDate, 1000);
 });
@@ -88,11 +100,15 @@ onUnmounted(() => {
 
     <p>Status: {{ status }}</p>
 
-    <button @click="start">Start</button>
+    <div>
+      <button @click="start">Start</button>
 
-    <button @click="pause">Pause</button>
+      <button @click="pause">Pause</button>
 
-    <button @click="end">End</button>
+      <button @click="end">End</button>
+    </div>
+
+    <button @click="signOut">Sign Out</button>
   </div>
 </template>
 
