@@ -6,7 +6,7 @@
     padding: 0px;
 }
 
-body {
+#app {
     background: linear-gradient(to right, #ffffff, #ece9e6);
 
     height: 100dvh;
