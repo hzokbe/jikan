@@ -9,5 +9,9 @@
 #app {
     background: linear-gradient(to right, #ffffff, #ece9e6);
 
+    box-sizing: border-box;
+
+    padding: 32px;
+
     height: 100dvh;
 }
