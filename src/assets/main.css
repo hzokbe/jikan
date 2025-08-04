@@ -5,3 +5,7 @@
 
     padding: 0px;
 }
+
+body {
+    background: linear-gradient(to right, #ffffff, #ece9e6);
+}
