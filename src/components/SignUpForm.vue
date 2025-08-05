@@ -87,7 +87,7 @@ const submit = async () => {
   <div>
     <h1>Sign Up</h1>
 
-    <form @submit.prevent="submit">
+    <form class="form" @submit.prevent="submit">
       <TextInput placeholder="Username" v-model="username" />
 
       <PasswordInput placeholder="Password" v-model="password" />
@@ -107,6 +107,16 @@ const submit = async () => {
 
 <style scoped>
 h1 {
+  color: #525252;
+
   user-select: none;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 2.75rem;
+
+  padding: 8px;
+
+  width: max-content;
 }
 </style>
