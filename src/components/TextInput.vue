@@ -9,8 +9,8 @@ import PersonIcon from '@/assets/person.svg';
 </script>
 
 <template>
-  <div>
-    <img :src="PersonIcon" />
+  <div class="input-container">
+    <img class="icon" :src="PersonIcon" />
 
     <input
       type="text"

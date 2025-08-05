@@ -19,8 +19,8 @@ const changeVisibility = () => (visibilityOn.value = !visibilityOn.value);
 </script>
 
 <template>
-  <div>
-    <img :src="LockIcon" />
+  <div class="input-container">
+    <img class="icon" :src="LockIcon" />
 
     <input
       :type="visibilityOn ? 'text' : 'password'"
