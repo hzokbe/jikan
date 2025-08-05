@@ -70,6 +70,8 @@ const submit = async () => {
         if (status == 401) {
           toastNotificationMessage.value = 'Wrong username or password';
         }
+      } else {
+        toastNotificationMessage.value = 'Network error';
       }
     }
   }

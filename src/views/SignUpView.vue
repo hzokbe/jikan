@@ -71,6 +71,8 @@ const submit = async () => {
 
       if (response) {
         toastNotificationMessage.value = response.data.message;
+      } else {
+        toastNotificationMessage.value = 'Network error';
       }
     }
   }
