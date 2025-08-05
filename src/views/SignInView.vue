@@ -55,7 +55,7 @@ const submit = async () => {
 
     toastNotificationType.value = 'success';
 
-    setTimeout(() => router.push('/'), 3000);
+    router.push('/');
   } catch (err) {
     showToastNotification.value = true;
 
