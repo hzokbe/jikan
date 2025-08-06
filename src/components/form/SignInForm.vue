@@ -93,7 +93,7 @@ const submit = async () => {
 
       <PasswordInput placeholder="Password" v-model="password" />
 
-      <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
+      <p>Don't have an account? <a href="/sign-up" draggable="false">Sign Up</a></p>
 
       <SubmitButton :text="submitButtonText" :disabled="isSubmitButtonDisabled" />
     </form>

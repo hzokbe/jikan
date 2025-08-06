@@ -20,7 +20,7 @@ const changeVisibility = () => (visibilityOn.value = !visibilityOn.value);
 
 <template>
   <div class="input-container">
-    <img class="icon" :src="LockIcon" />
+    <img class="icon" :src="LockIcon" draggable="false" />
 
     <input
       :type="visibilityOn ? 'text' : 'password'"
@@ -30,7 +30,7 @@ const changeVisibility = () => (visibilityOn.value = !visibilityOn.value);
     />
 
     <button type="button" title="Change Visiblity" @click="changeVisibility">
-      <img :src="!visibilityOn ? VisibilityOnIcon : VisibilityOffIcon" />
+      <img :src="!visibilityOn ? VisibilityOnIcon : VisibilityOffIcon" draggable="false" />
     </button>
   </div>
 </template>

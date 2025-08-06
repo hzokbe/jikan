@@ -10,7 +10,7 @@ import PersonIcon from '@/assets/person.svg';
 
 <template>
   <div class="input-container">
-    <img class="icon" :src="PersonIcon" />
+    <img class="icon" :src="PersonIcon" draggable="false" />
 
     <input
       type="text"

@@ -96,7 +96,7 @@ const submit = async () => {
 
       <PasswordInput placeholder="Password Confirmation" v-model="passwordConfirmation" />
 
-      <p>Already have an account? <a href="/sign-in">Sign In</a></p>
+      <p>Already have an account? <a href="/sign-in" draggable="false">Sign In</a></p>
 
       <SubmitButton :text="submitButtonText" :disabled="isSubmitButtonDisabled" />
 
