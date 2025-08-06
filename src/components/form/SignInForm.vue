@@ -106,18 +106,4 @@ const submit = async () => {
   </div>
 </template>
 
-<style scoped>
-h1 {
-  color: #525252;
-
-  user-select: none;
-
-  font-family: 'Inter', sans-serif;
-
-  font-size: 2.75rem;
-
-  padding: 8px;
-
-  width: max-content;
-}
-</style>
+<style scoped></style>

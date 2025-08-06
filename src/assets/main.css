@@ -75,3 +75,31 @@
 
     gap: 8px;
 }
+
+.form h1 {
+  color: #525252;
+
+  user-select: none;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 2.75rem;
+
+  padding: 8px;
+
+  width: max-content;
+}
+
+.form p {
+  font-family: 'Inter', sans-serif;
+
+  user-select: none;
+}
+
+.form p a {
+  color: #2563eb;
+
+  font-weight: bolder;
+
+  text-decoration: none;
+}

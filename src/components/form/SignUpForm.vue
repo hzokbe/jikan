@@ -96,6 +96,8 @@ const submit = async () => {
 
       <PasswordInput placeholder="Password Confirmation" v-model="passwordConfirmation" />
 
+      <p>Already have an account? <a href="/sign-in">Sign In</a></p>
+
       <SubmitButton :text="submitButtonText" :disabled="isSubmitButtonDisabled" />
 
       <ToastNotification
@@ -107,18 +109,4 @@ const submit = async () => {
   </div>
 </template>
 
-<style scoped>
-h1 {
-  color: #525252;
-
-  user-select: none;
-
-  font-family: 'Inter', sans-serif;
-
-  font-size: 2.75rem;
-
-  padding: 8px;
-
-  width: max-content;
-}
-</style>
+<style scoped></style>
