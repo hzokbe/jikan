@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import PasswordInput from '@/components/PasswordInput.vue';
+import PasswordInput from '@/components/input/PasswordInput.vue';
 
-import TextInput from '@/components/TextInput.vue';
+import TextInput from '@/components/input/TextInput.vue';
 
 import { AxiosError } from 'axios';
 
