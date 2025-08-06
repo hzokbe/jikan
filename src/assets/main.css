@@ -91,7 +91,11 @@
 }
 
 .form p {
+  color: #525252;
+
   font-family: 'Inter', sans-serif;
+
+  padding: 8px;
 
   user-select: none;
 }
@@ -99,7 +103,11 @@
 .form p a {
   color: #2563eb;
 
+  cursor: pointer;
+
   font-weight: bolder;
+
+  padding: 8px;
 
   text-decoration: none;
 }
