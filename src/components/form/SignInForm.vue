@@ -86,9 +86,9 @@ const submit = async () => {
 
 <template>
   <div>
-    <h1>Sign In</h1>
-
     <form class="form" @submit.prevent="submit">
+      <h1>Sign In</h1>
+
       <TextInput placeholder="Username" v-model="username" />
 
       <PasswordInput placeholder="Password" v-model="password" />

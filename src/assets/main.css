@@ -1,79 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
-    margin: 0px;
+  margin: 0px;
 
-    padding: 0px;
+  padding: 0px;
 }
 
 #app {
-    background: linear-gradient(to right, #ffffff, #ece9e6);
+  background: linear-gradient(to right, #ffffff, #ece9e6);
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    padding: 32px;
+  padding: 32px;
 
-    height: 100dvh;
+  height: 100dvh;
 }
 
 .input-container {
-    align-items: center;
+  align-items: center;
 
-    background-color: #e5e5e5;
+  background-color: #e5e5e5;
 
-    border: 2px #a3a3a3 solid;
+  border: 2px #a3a3a3 solid;
 
-    border-radius: 5px;
+  border-radius: 5px;
 
-    display: flex;
+  display: flex;
 
-    padding: 8px;
+  padding: 8px;
 }
 
 .input-container input {
-    background: none;
+  background: none;
 
-    border: none;
+  border: none;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    color: #525252;
+  color: #525252;
 
-    flex: 1;
+  flex: 1;
 
-    font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
 
-    font-weight: 500;
+  font-weight: 500;
 
-    outline: none;
+  outline: none;
 
-    padding: 8px;
+  padding: 8px;
 }
 
 .icon {
-    height: 24px;
+  height: 24px;
 
-    width: 24px;
+  width: 24px;
 
-    object-fit: contain;
+  object-fit: contain;
 }
 
 .input-container button {
-    background: none;
+  background: none;
 
-    border: none;
+  border: none;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    display: flex;
+  display: flex;
 }
 
 .form {
-    display: flex;
+  display: flex;
 
-    flex-direction: column;
+  flex-direction: column;
 
-    gap: 8px;
+  gap: 8px;
 }
 
 .form h1 {
