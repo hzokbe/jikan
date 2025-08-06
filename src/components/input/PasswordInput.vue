@@ -19,7 +19,7 @@ const changeVisibility = () => (visibilityOn.value = !visibilityOn.value);
 </script>
 
 <template>
-  <div class="input-container">
+  <div class="password-input-container">
     <img class="icon" :src="LockIcon" draggable="false" />
 
     <input
@@ -35,4 +35,38 @@ const changeVisibility = () => (visibilityOn.value = !visibilityOn.value);
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.password-input-container {
+  align-items: center;
+
+  background-color: #e5e5e5;
+
+  border: 2px #a3a3a3 solid;
+
+  border-radius: 5px;
+
+  display: flex;
+
+  padding: 8px;
+}
+
+.password-input-container input {
+  background: none;
+
+  border: none;
+
+  box-sizing: border-box;
+
+  color: #525252;
+
+  flex: 1;
+
+  font-family: 'Inter', sans-serif;
+
+  font-weight: 500;
+
+  outline: none;
+
+  padding: 8px;
+}
+</style>
