@@ -13,6 +13,8 @@ import ToastNotification from '@/components/ToastNotification.vue';
 
 import { useRouter } from 'vue-router';
 
+import SubmitButton from './button/SubmitButton.vue';
+
 const username = ref('');
 
 const password = ref('');
@@ -93,7 +95,7 @@ const submit = async () => {
 
       <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
 
-      <button type="submit" :disabled="isSubmitButtonDisabled">{{ submitButtonText }}</button>
+      <SubmitButton :text="submitButtonText" :disabled="isSubmitButtonDisabled" />
     </form>
 
     <ToastNotification
